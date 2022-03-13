@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ProfileView.swift
 //  InstagramSwiftUI
 //
 //  Created by jaeseung han on 2022/03/13.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ProfileView: View {
     var body: some View {
-        MainTabView()
+        Text("Profile")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ProfileView()
     }
 }
