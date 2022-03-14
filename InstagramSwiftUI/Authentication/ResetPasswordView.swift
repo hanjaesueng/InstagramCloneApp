@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct ResetPasswordView: View {
+    // shared 되는 single tone pattern의 객체, 처음 environmentObject 메서드로 생성해줌 View를 생성하면서
+    @EnvironmentObject var viewModel : AuthViewModel
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
