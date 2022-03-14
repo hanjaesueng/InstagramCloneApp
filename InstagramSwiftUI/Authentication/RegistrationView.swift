@@ -17,6 +17,7 @@ struct RegistrationView: View {
     @State private var imagePickerPresented = false
     //dismiss  used
     @Environment(\.presentationMode) var mode
+    @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
         ZStack {
@@ -55,13 +56,13 @@ struct RegistrationView: View {
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .padding(.horizontal,32)
-                    CustomTextField(text: $email, placeholder: Text("Username"), imageName: "person")
+                    CustomTextField(text: $username, placeholder: Text("Username"), imageName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .padding(.horizontal,32)
-                    CustomTextField(text: $email, placeholder: Text("Full name"), imageName: "person")
+                    CustomTextField(text: $fullname, placeholder: Text("Full name"), imageName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
@@ -78,7 +79,9 @@ struct RegistrationView: View {
               
                
                 // sign in
-                Button(action: {}) {
+                Button(action: {
+                    viewModel.register(withEamil: email, password: password,image: selectedImage,fullname: fullname,username: username)
+                }) {
                     Text("Sign Up")
                         .font(.headline)
                         .foregroundColor(.white)

@@ -39,6 +39,9 @@
 		DB904BF627DF41F800212DCF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DB904BF527DF41F800212DCF /* FirebaseMessaging */; };
 		DB904BF827DF41F800212DCF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DB904BF727DF41F800212DCF /* FirebaseStorage */; };
 		DB904BFB27DF42A100212DCF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DB904BFA27DF42A100212DCF /* Kingfisher */; };
+		DBBCB96F27DF7C18000ADE06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBBCB96E27DF7C18000ADE06 /* GoogleService-Info.plist */; };
+		DBBCB97227DF7EF0000ADE06 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCB97127DF7EF0000ADE06 /* AuthViewModel.swift */; };
+		DBBCB97427DF9686000ADE06 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCB97327DF9686000ADE06 /* ImageUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,9 @@
 		DB501B6E27DE360F006CA1D2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DB501B7027DE3618006CA1D2 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DB501B7227DE3628006CA1D2 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		DBBCB96E27DF7C18000ADE06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DBBCB97127DF7EF0000ADE06 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		DBBCB97327DF9686000ADE06 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = InstagramSwiftUI/API/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,15 +113,16 @@
 		38F6B0C027DDA65500F836D4 /* InstagramSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				DB501B6D27DE354E006CA1D2 /* API */,
+				DBBCB97627DF96D7000ADE06 /* Utils */,
+				DBBCB97527DF96A3000ADE06 /* API */,
 				DB501B6C27DE3546006CA1D2 /* ViewModel */,
 				DB501B6B27DE353E006CA1D2 /* Comments */,
 				DB501B6A27DE3530006CA1D2 /* Authentication */,
-				38F6B0D327DDA6ED00F836D4 /* Utils */,
 				38F6B0D227DDA6D000F836D4 /* Model */,
 				38F6B0D127DDA6CE00F836D4 /* View */,
 				38F6B0C127DDA65500F836D4 /* InstagramSwiftUIApp.swift */,
 				38F6B0C527DDA65600F836D4 /* Assets.xcassets */,
+				DBBCB96E27DF7C18000ADE06 /* GoogleService-Info.plist */,
 				38F6B0C727DDA65600F836D4 /* Preview Content */,
 			);
 			path = InstagramSwiftUI;
@@ -148,17 +155,6 @@
 			children = (
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		38F6B0D327DDA6ED00F836D4 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				38F6B0F927DDDE9E00F836D4 /* Extensions.swift */,
-				DB501B6827DE2191006CA1D2 /* ImagePicker.swift */,
-				385DBCCA27DF038200D6E8BC /* CustomTextField.swift */,
-				385DBCCC27DF039600D6E8BC /* CustomSecureField.swift */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 		38F6B0D427DDA7EE00F836D4 /* Main */ = {
@@ -246,15 +242,36 @@
 		DB501B6C27DE3546006CA1D2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DBBCB97027DF7ED4000ADE06 /* Authentication */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DB501B6D27DE354E006CA1D2 /* API */ = {
+		DBBCB97027DF7ED4000ADE06 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				DBBCB97127DF7EF0000ADE06 /* AuthViewModel.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DBBCB97527DF96A3000ADE06 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DBBCB97327DF9686000ADE06 /* ImageUploader.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		DBBCB97627DF96D7000ADE06 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				38F6B0F927DDDE9E00F836D4 /* Extensions.swift */,
+				DB501B6827DE2191006CA1D2 /* ImagePicker.swift */,
+				385DBCCA27DF038200D6E8BC /* CustomTextField.swift */,
+				385DBCCC27DF039600D6E8BC /* CustomSecureField.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +346,7 @@
 			files = (
 				38F6B0C927DDA65600F836D4 /* Preview Assets.xcassets in Resources */,
 				38F6B0C627DDA65600F836D4 /* Assets.xcassets in Resources */,
+				DBBCB96F27DF7C18000ADE06 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +362,7 @@
 				38F6B0F427DDD22500F836D4 /* PostGridView.swift in Sources */,
 				DB501B7127DE3618006CA1D2 /* RegistrationView.swift in Sources */,
 				385DBCCB27DF038200D6E8BC /* CustomTextField.swift in Sources */,
+				DBBCB97427DF9686000ADE06 /* ImageUploader.swift in Sources */,
 				38F6B0D627DDA80700F836D4 /* ContentView.swift in Sources */,
 				38F6B0C227DDA65500F836D4 /* InstagramSwiftUIApp.swift in Sources */,
 				38F6B0E427DDAB1400F836D4 /* MainTabView.swift in Sources */,
@@ -359,6 +378,7 @@
 				38F6B0F227DDC85000F836D4 /* SearchBar.swift in Sources */,
 				38F6B0EA27DDAB7F00F836D4 /* NotificationView.swift in Sources */,
 				38F6B0F027DDB22800F836D4 /* FeedCell.swift in Sources */,
+				DBBCB97227DF7EF0000ADE06 /* AuthViewModel.swift in Sources */,
 				38F6B0F827DDD98900F836D4 /* UserListView.swift in Sources */,
 				DB501B6127DE10F7006CA1D2 /* NotificationCell.swift in Sources */,
 				DB501B6F27DE360F006CA1D2 /* LoginView.swift in Sources */,
