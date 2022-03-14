@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		385DBCCB27DF038200D6E8BC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DBCCA27DF038200D6E8BC /* CustomTextField.swift */; };
+		385DBCCD27DF039600D6E8BC /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DBCCC27DF039600D6E8BC /* CustomSecureField.swift */; };
 		38F6B0C227DDA65500F836D4 /* InstagramSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6B0C127DDA65500F836D4 /* InstagramSwiftUIApp.swift */; };
 		38F6B0C627DDA65600F836D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F6B0C527DDA65600F836D4 /* Assets.xcassets */; };
 		38F6B0C927DDA65600F836D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F6B0C827DDA65600F836D4 /* Preview Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		385DBCCA27DF038200D6E8BC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		385DBCCC27DF039600D6E8BC /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		38F6B0BE27DDA65500F836D4 /* InstagramSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F6B0C127DDA65500F836D4 /* InstagramSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramSwiftUIApp.swift; sourceTree = "<group>"; };
 		38F6B0C527DDA65600F836D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			children = (
 				38F6B0F927DDDE9E00F836D4 /* Extensions.swift */,
 				DB501B6827DE2191006CA1D2 /* ImagePicker.swift */,
+				385DBCCA27DF038200D6E8BC /* CustomTextField.swift */,
+				385DBCCC27DF039600D6E8BC /* CustomSecureField.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -283,6 +289,10 @@
 				Base,
 			);
 			mainGroup = 38F6B0B527DDA65500F836D4;
+			packageReferences = (
+				385DBCCE27DF16F900D6E8BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				385DBCCF27DF187700D6E8BC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 38F6B0BF27DDA65500F836D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -313,6 +323,7 @@
 				38F6B0E627DDAB4A00F836D4 /* FeedView.swift in Sources */,
 				38F6B0F427DDD22500F836D4 /* PostGridView.swift in Sources */,
 				DB501B7127DE3618006CA1D2 /* RegistrationView.swift in Sources */,
+				385DBCCB27DF038200D6E8BC /* CustomTextField.swift in Sources */,
 				38F6B0D627DDA80700F836D4 /* ContentView.swift in Sources */,
 				38F6B0C227DDA65500F836D4 /* InstagramSwiftUIApp.swift in Sources */,
 				38F6B0E427DDAB1400F836D4 /* MainTabView.swift in Sources */,
@@ -324,6 +335,7 @@
 				DB501B6527DE1877006CA1D2 /* UserStatView.swift in Sources */,
 				38F6B0F627DDD97800F836D4 /* UserCell.swift in Sources */,
 				DB501B6727DE197A006CA1D2 /* ProfileAcionButtonView.swift in Sources */,
+				385DBCCD27DF039600D6E8BC /* CustomSecureField.swift in Sources */,
 				38F6B0F227DDC85000F836D4 /* SearchBar.swift in Sources */,
 				38F6B0EA27DDAB7F00F836D4 /* NotificationView.swift in Sources */,
 				38F6B0F027DDB22800F836D4 /* FeedCell.swift in Sources */,
@@ -535,6 +547,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		385DBCCE27DF16F900D6E8BC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		385DBCCF27DF187700D6E8BC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 38F6B0B627DDA65500F836D4 /* Project object */;
 }
