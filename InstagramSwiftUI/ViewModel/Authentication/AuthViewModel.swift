@@ -16,6 +16,7 @@ class AuthViewModel : ObservableObject {
     
     init() {
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     func login(withEmail email : String,password : String){
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
@@ -50,7 +51,7 @@ class AuthViewModel : ObservableObject {
                             "fullname":fullname,
                             "profileImageUrl":imageUrl,
                             "uid":user.uid]
-                Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                COLLECTION_USERS.document(user.uid).setData(data) { _ in
                     print("successfully uploaded user data...")
                     // @Published 인 userSession이 변경되면 얘를 참조하는 ContentView에서 body를 다시 불러온다
                     self.userSession = user
@@ -64,11 +65,18 @@ class AuthViewModel : ObservableObject {
         try? Auth.auth().signOut()
     }
     
-    func fetchUser(){
-        print("fetchUser")
-    }
+    
     
     func resetPassword() {
         
+    }
+    
+    func fetchUser(){
+        guard let uid = userSession?.uid else {return}
+        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+            guard let user = try? snapshot?.data(as: User.self) else {return}
+            print(user)
+           
+        }
     }
 }
