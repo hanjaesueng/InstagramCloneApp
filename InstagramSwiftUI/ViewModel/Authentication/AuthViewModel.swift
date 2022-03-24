@@ -11,6 +11,7 @@ import Firebase
 // 앱에서 observe할수 있는 객체
 class AuthViewModel : ObservableObject {
     @Published var userSession : FirebaseAuth.User?
+    @Published var currentUser : User?
     
     static let shared = AuthViewModel()
     
@@ -28,7 +29,7 @@ class AuthViewModel : ObservableObject {
             guard let user = result?.user else {return}
             
             self.userSession = user
-            print("successfully sign in...")
+            self.fetchUser()
         }
     }
     
@@ -75,7 +76,7 @@ class AuthViewModel : ObservableObject {
         guard let uid = userSession?.uid else {return}
         COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
             guard let user = try? snapshot?.data(as: User.self) else {return}
-            print(user)
+            self.currentUser = user
            
         }
     }

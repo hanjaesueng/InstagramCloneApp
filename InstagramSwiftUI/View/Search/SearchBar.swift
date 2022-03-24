@@ -26,6 +26,7 @@ struct SearchBar: View {
                             .padding(.leading,8)
                     }
                 }
+            
             .onTapGesture {
                     isEditing = true
                 }

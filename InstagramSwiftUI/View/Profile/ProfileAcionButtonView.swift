@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProfileAcionButtonView: View {
-    var icCurrentUser = false
-    var isFollowed = true
+    let icCurrentUser : Bool
+    var isFollowed = false
     
     var body: some View {
         if icCurrentUser {
@@ -53,8 +53,3 @@ struct ProfileAcionButtonView: View {
     }
 }
 
-struct ProfileAcionButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileAcionButtonView()
-    }
-}

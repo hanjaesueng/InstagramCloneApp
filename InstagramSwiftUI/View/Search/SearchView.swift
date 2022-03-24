@@ -20,7 +20,7 @@ struct SearchView: View {
             //grid view /user list view
             ZStack {
                 if inSearchMode {
-                    UserListView(viewModel: viewModel)
+                    UserListView(viewModel: viewModel, searchingStr: $searchText)
                 } else {
                     PostGridView()
                 }

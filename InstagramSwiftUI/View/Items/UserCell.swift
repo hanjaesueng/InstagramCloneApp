@@ -16,8 +16,8 @@ struct UserCell: View {
     var body: some View {
         HStack{
             // image
-            // KFImage(URL(string:user.profileImageUrl))
-            Image(uiImage: downloadedImage == nil ? UIImage() : downloadedImage!)
+             KFImage(URL(string:user.profileImageUrl))
+//            Image(uiImage: downloadedImage == nil ? UIImage() : downloadedImage!)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 48, height: 48)
