@@ -13,5 +13,4 @@ target 'InstagramSwiftUI' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Functions'
 	pod 'Firebase/Database'
-	pod 'FirebaseFirestoreSwift', '8.3.0-beta'
 end
