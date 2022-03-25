@@ -8,7 +8,7 @@ target 'InstagramSwiftUI' do
   # Pods for InstagramSwiftUI
 	#kingFisher	
 	pod 'Kingfisher', '~> 7.0'
-	pod 'Kingfisher/SwiftUI', '~> 7.0'
+	pod 'FirebaseFirestoreSwift', '8.1.0-beta'
 	pod 'Firebase/Storage'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Functions'

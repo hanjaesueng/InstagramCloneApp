@@ -34,12 +34,8 @@ struct RegistrationView: View {
                             .padding(.top,44)
                     } else {
                         Button(action: {imagePickerPresented.toggle()}) {
-                            Image(systemName:"photo.on.rectangle")
-                                .resizable()
-                                .renderingMode(.template)
-                                .scaledToFit()
+                            PlusPhotoView()
                                 .frame(width: 140, height: 140)
-                                .clipped()
                                 .foregroundColor(.white)
                         }.sheet(isPresented: $imagePickerPresented, onDismiss: loadImage) {
                             ImagePicker(image: $selectedImage)
