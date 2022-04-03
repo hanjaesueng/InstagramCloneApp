@@ -7,8 +7,10 @@
 
 import Firebase
 
+typealias FirestoreCompletion = ((Error?) -> Void)?
+
 struct UserService {
-    static func follow(uid : String, completion :  ((Error?) -> Void)?){
+    static func follow(uid : String, completion :  FirestoreCompletion){
         
         guard let currentUid = AuthViewModel.shared.userSession?.uid else {return}
         COLLECTION_FOLLOWING.document(currentUid)
@@ -18,7 +20,7 @@ struct UserService {
             }
     }
     
-    static func unfollow(uid : String, completion :  ((Error?) -> Void)?){
+    static func unfollow(uid : String, completion :  FirestoreCompletion){
         guard let currentUid = AuthViewModel.shared.userSession?.uid else {return}
         COLLECTION_FOLLOWING.document(currentUid).collection("user-following")
             .document(uid).delete{ _ in

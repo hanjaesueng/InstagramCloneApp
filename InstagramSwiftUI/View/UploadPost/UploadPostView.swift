@@ -13,6 +13,8 @@ struct UploadPostView: View {
     @State var postImage : Image?
     @State var captionText = ""
     @State var imagePickerPresented = false
+    @Binding var tabIndex : Int
+    @ObservedObject var viewModel = UploadPostViewModel()
     
     var body: some View {
         VStack {
@@ -33,19 +35,62 @@ struct UploadPostView: View {
                         .frame(width: 96, height: 96)
                         .clipped()
                     
-                    TextField("Enter your caption..",text: $captionText)
+
+                    TextArea(text: $captionText, placeholder: "Enter your caption..")
+                        .frame(height : 200)
                 }.padding()
-                Button(action: {}) {
-                    Text("Share")
-                        .font(.system(size: 16,weight: .semibold))
-                        .frame(width: 360, height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(5)
-                        .foregroundColor(.white)
+                HStack(spacing:16) {
+                    Button(action: {
+                        captionText = ""
+                        postImage = nil
+                    }) {
+                        Text("Cancel")
+                            .font(.system(size: 16,weight: .semibold))
+                            .frame(width: 172, height: 50)
+                            .background(Color.red)
+                            .cornerRadius(5)
+                            .foregroundColor(.white)
+                    }
+                    
+                    Button(action: {
+                        if let image = selectedImage {
+                            viewModel.uploadPost(caption: captionText, image: image) { _ in
+                                captionText = ""
+                                postImage = nil
+                                tabIndex = 0
+                            }
+                        }
+                    }) {
+                        Text("Share")
+                            .font(.system(size: 16,weight: .semibold))
+                            .frame(width: 172, height: 50)
+                            .background(Color.blue)
+                            .cornerRadius(5)
+                            .foregroundColor(.white)
+                    }
                 }.padding()
             }
             
             Spacer()
+        }
+    }
+}
+
+struct PlusPhotoView : View {
+    var body:some View {
+        ZStack {
+            Circle()
+                .stroke(style: StrokeStyle(lineWidth:5))
+            VStack(spacing:20) {
+                ZStack {
+                    Rectangle()
+                        .frame(width: 5, height: 30)
+                    Rectangle()
+                        .frame(width: 30, height: 5)
+                }
+                Text("Photo")
+                    .font(.system(size: 30, weight: .semibold))
+            }
         }
     }
 }
@@ -56,6 +101,7 @@ extension UploadPostView {
         postImage = Image(uiImage: selectedImage)
     }
 }
+
 
 struct LoadImageIcon : View {
     var body: some View {
@@ -71,7 +117,7 @@ struct LoadImageIcon : View {
                         .frame(width:50,height: 5)
                 }
                 Text("Photo")
-                    .font(.system(size:20,weight: .semibold))
+                    .font(.system(size:30,weight: .semibold))
             }
             
             
@@ -81,8 +127,9 @@ struct LoadImageIcon : View {
     }
 }
 
-struct UploadPostView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadPostView()
-    }
-}
+//struct UploadPostView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UploadPostView()
+//    }
+//}
+//

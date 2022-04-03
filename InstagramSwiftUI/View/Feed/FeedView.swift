@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct FeedView: View {
+    @ObservedObject var viewModel = FeedViewModel()
     var body: some View {
         ScrollView {
             // 필요할때 rendering 함, netwrok에 적합하다
             LazyVStack(spacing:32) {
-                ForEach(0..<10) { _ in
-                    FeedCell()
+                ForEach(viewModel.posts) { post in
+                    FeedCell(post: post)
                 }
             }.padding(.top)
         }
