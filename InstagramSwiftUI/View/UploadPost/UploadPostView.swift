@@ -18,12 +18,8 @@ struct UploadPostView: View {
         VStack {
             if postImage == nil {
                 Button(action: {imagePickerPresented.toggle()}) {
-                    Image(systemName:"photo.on.rectangle")
-                        .resizable()
-                        .renderingMode(.template)
-                        .scaledToFit()
+                    LoadImageIcon()
                         .frame(width: 180, height: 180)
-                        .clipped()
                         .padding(.top,56)
                         .foregroundColor(.black)
                 }.sheet(isPresented: $imagePickerPresented, onDismiss: loadImage) {
@@ -60,6 +56,31 @@ extension UploadPostView {
         postImage = Image(uiImage: selectedImage)
     }
 }
+
+struct LoadImageIcon : View {
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(style: StrokeStyle(lineWidth:5))
+            VStack() {
+                ZStack{
+                    Rectangle()
+                    
+                        .frame(width:5,height: 50)
+                    Rectangle()
+                        .frame(width:50,height: 5)
+                }
+                Text("Photo")
+                    .font(.system(size:20,weight: .semibold))
+            }
+            
+            
+            
+            
+        }
+    }
+}
+
 struct UploadPostView_Previews: PreviewProvider {
     static var previews: some View {
         UploadPostView()
