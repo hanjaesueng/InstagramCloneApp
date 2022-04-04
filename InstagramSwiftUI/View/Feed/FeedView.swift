@@ -14,7 +14,7 @@ struct FeedView: View {
             // 필요할때 rendering 함, netwrok에 적합하다
             LazyVStack(spacing:32) {
                 ForEach(viewModel.posts) { post in
-                    FeedCell(post: post)
+                    FeedCell(viewModel: FeedCellViewModel(post: post))
                 }
             }.padding(.top)
         }

@@ -12,6 +12,7 @@ class SearchViewModel : ObservableObject {
     
     init() {
         fetchUsers()
+        
     }
     
     func fetchUsers() {
@@ -22,6 +23,8 @@ class SearchViewModel : ObservableObject {
             }
         }
     }
+    
+  
     
     func filteredUsers(_ query : String) -> [User] {
         let lowercasedQuery = query.lowercased()

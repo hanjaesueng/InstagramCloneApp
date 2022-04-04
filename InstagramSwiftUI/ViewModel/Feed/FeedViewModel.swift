@@ -22,8 +22,6 @@ class FeedViewModel : ObservableObject {
 
                 try? $0.data(as: Post.self)
             }
-           
-            
         }
         
     }

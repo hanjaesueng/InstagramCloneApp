@@ -12,6 +12,7 @@ struct SearchView: View {
     @State var searchText = ""
     @State var inSearchMode = false
     @ObservedObject var viewModel = SearchViewModel()
+    
     var body: some View {
         ScrollView {
             // search bar
@@ -22,7 +23,7 @@ struct SearchView: View {
                 if inSearchMode {
                     UserListView(viewModel: viewModel, searchingStr: $searchText)
                 } else {
-                    PostGridView()
+                    PostGridView(config: .explore)
                 }
             }
         }
