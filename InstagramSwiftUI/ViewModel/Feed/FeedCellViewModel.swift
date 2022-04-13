@@ -25,11 +25,13 @@ class FeedCellViewModel : ObservableObject {
         guard let postId = post.id else {return}
         COLLECTION_POSTS.document(postId).collection("post-likes").document(uid).setData([:]) { _ in
             COLLECTION_USERS.document(uid).collection("user-likes").document(postId).setData([:]) { _ in
-                    
-                    COLLECTION_POSTS.document(postId).updateData(["likes":self.post.likes + 1])
-                    self.post.didLikes = true
-                    self.post.likes += 1
-                }
+                
+                COLLECTION_POSTS.document(postId).updateData(["likes":self.post.likes + 1])
+                
+                NotificationsViewModel.uploadNotification(toUid: self.post.ownerUid, type: .like, post: self.post)
+                self.post.didLikes = true
+                self.post.likes += 1
+            }
         }
     }
     
@@ -39,12 +41,12 @@ class FeedCellViewModel : ObservableObject {
         guard let postId = post.id else {return}
         
         COLLECTION_POSTS.document(postId).collection("post-likes").document(uid).delete { _ in
-                COLLECTION_USERS.document(uid).collection("user-likes").document(postId).delete { _ in
-                        COLLECTION_POSTS.document(postId).updateData(["likes":self.post.likes - 1])
-                        self.post.didLikes = false
-                        self.post.likes -= 1
-                    }
+            COLLECTION_USERS.document(uid).collection("user-likes").document(postId).delete { _ in
+                COLLECTION_POSTS.document(postId).updateData(["likes":self.post.likes - 1])
+                self.post.didLikes = false
+                self.post.likes -= 1
             }
+        }
     }
     
     func checkIfUserLikedPost(){

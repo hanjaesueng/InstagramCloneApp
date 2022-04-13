@@ -22,6 +22,7 @@ struct FeedCell: View {
         VStack(alignment: .leading){
             //user info
             HStack {
+                
                 KFImage(URL(string: viewModel.post.ownerImageUrl))
                     .resizable()
                     .scaledToFill()
@@ -51,7 +52,9 @@ struct FeedCell: View {
                         .font(.system(size: 20))
                         .padding(4)
                 }
-                Button(action: {}) {
+                NavigationLink {
+                    CommentsView(post: viewModel.post)
+                } label: {
                     Image(systemName: "bubble.right")
                         .resizable()
                         .scaledToFill()
@@ -59,6 +62,7 @@ struct FeedCell: View {
                         .font(.system(size: 20))
                         .padding(4)
                 }
+
                 Button(action: {}) {
                     Image(systemName: "paperplane")
                         .resizable()
