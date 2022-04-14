@@ -25,7 +25,7 @@ struct ProfileHeaderView: View {
                 
                 
                 HStack(alignment:.center,spacing:16) {
-              
+                    
                     UserStatView(value: viewModel.user.stats?.posts ?? 0, title: "Post")
                     UserStatView(value: viewModel.user.stats?.followers ?? 0, title: "Followers")
                     UserStatView(value: viewModel.user.stats?.following ?? 0, title: "Following")
@@ -35,10 +35,13 @@ struct ProfileHeaderView: View {
             Text(viewModel.user.fullname)
                 .font(.system(size: 15,weight: .semibold))
                 .padding([.leading,.top])
-            Text("촉나라 전장군 || 유비 의형제")
-                .font(.system(size: 15))
-                .padding(.leading)
-                .padding(.top,1)
+            if let bio = viewModel.user.bio {
+                Text(bio)
+                    .font(.system(size: 15))
+                    .padding(.leading)
+                    .padding(.top,1)
+            }
+            
             // 양쪽에 spacer를 둬서 가운데에 위치하게한다
             HStack {
                 Spacer()
